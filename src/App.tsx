@@ -1,14 +1,15 @@
 import React from "react";
 import BaseRouter from "./routes";
 import { BrowserRouter } from "react-router-dom";
+import Layout from "./layouts/Layout";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <React.Fragment>
+      <Layout>
         <BaseRouter />
-      </React.Fragment>
+      </Layout>
     </BrowserRouter>
   );
 }
