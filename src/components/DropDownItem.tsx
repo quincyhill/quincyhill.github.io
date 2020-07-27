@@ -18,6 +18,7 @@ function DropDownItem(props: DropDownProps) {
       </StyledButton>
       <Row>
         <Col>
+          <br />
           {isClicked ? (
             <DropDownContent>{props.children}</DropDownContent>
           ) : null}
