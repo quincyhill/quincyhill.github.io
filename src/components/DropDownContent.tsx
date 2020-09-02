@@ -1,14 +1,20 @@
 import React, { ReactNode } from "react";
 import Card from "react-bootstrap/Card";
+import { dropdownBackgroundColor } from "../themes/colors";
 
 interface DropDownContentProps {
   children: ReactNode;
 }
 
-function DropDownContent(props: DropDownContentProps) {
+function DropDownContent({ children }: DropDownContentProps) {
   return (
-    <Card className="bg-dark text-light">
-      <Card.Body>{props.children}</Card.Body>
+    <Card
+      className="text-light "
+      style={{ backgroundColor: dropdownBackgroundColor }}
+    >
+      <Card.Body style={{ backgroundColor: "transparent" }}>
+        {children}
+      </Card.Body>
     </Card>
   );
 }
