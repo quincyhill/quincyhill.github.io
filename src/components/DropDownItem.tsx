@@ -1,30 +1,24 @@
 import React, { useState, ReactNode } from "react";
-import DropDownContent from "./DropDownContent";
 import StyledButton from "./StyledButton";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import DropDownContent from "./DropDownContent";
 
-interface DropDownProps {
-  buttonText: string;
+interface DropDownItemProps {
+  title: string;
   children: ReactNode;
 }
 
-function DropDownItem(props: DropDownProps) {
+function DropDownItem(props: DropDownItemProps) {
   let [isClicked, setIsClicked] = useState(false);
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
   return (
-    <React.Fragment>
-      <StyledButton onClick={() => setIsClicked(!isClicked)}>
-        {props.buttonText}
-      </StyledButton>
-      <Row>
-        <Col>
-          <br />
-          {isClicked ? (
-            <DropDownContent>{props.children}</DropDownContent>
-          ) : null}
-        </Col>
-      </Row>
-    </React.Fragment>
+    <div className="text-light">
+      <StyledButton onClick={handleClick}>{props.title}</StyledButton>
+      <br />
+      <br />
+      {isClicked ? <DropDownContent children={props.children} /> : null}
+    </div>
   );
 }
 

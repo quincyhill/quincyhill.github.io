@@ -1,10 +1,4 @@
 import React, { ReactNode } from "react";
-import Container from "react-bootstrap/Container";
-import MainNavbar from "../components/MainNavbar";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import andromeda from "../assets/andromeda.jpg";
-import starnight from "../assets/starnight.jpg";
 import { darkerGrey } from "../themes/colors";
 
 interface LayoutProps {
@@ -13,42 +7,22 @@ interface LayoutProps {
 
 function Layout({ children }: LayoutProps) {
   return (
-    <Container
-      fluid
-      className="p-0 "
+    <div
+      className="container-fluid p-0"
       style={{
         overflowX: "hidden",
         minHeight: "100vh",
         backgroundColor: darkerGrey,
       }}
     >
-      <Row>
-        <Col>
-          <MainNavbar />
-        </Col>
-      </Row>
-      <Row
-        style={{
-          backgroundImage: `url(${starnight})`,
-        }}
-      >
-        <Col>{children}</Col>
-      </Row>
+      <div>{children}</div>
       <br />
       <br />
+      <div className="text-center text-light">
+        <p>Copyright &copy; 2020 Quincy Hill</p>
+      </div>
       <br />
-      <br />
-      <Row
-        className="text-center text-light"
-        style={{ backgroundColor: "transparent" }}
-      >
-        <Col>
-          <footer>
-            <p>Copyright &copy; 2020 Quincy Hill</p>
-          </footer>
-        </Col>
-      </Row>
-    </Container>
+    </div>
   );
 }
 

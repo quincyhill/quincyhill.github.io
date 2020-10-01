@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { primaryColor } from "../themes/colors";
+import { primaryColor, darkGrey } from "../themes/colors";
 
 const StyledButton = styled.button`
   background: transparent;
@@ -9,6 +9,11 @@ const StyledButton = styled.button`
   color: ${primaryColor};
   margin: 0 1em;
   padding: 0.25em 1em;
+
+  &:hover {
+    color: ${darkGrey};
+    background: ${primaryColor};
+  }
 `;
 
 export default StyledButton;
