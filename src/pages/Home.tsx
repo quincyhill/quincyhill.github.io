@@ -1,23 +1,22 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import DropDownItem from "../components/DropDownItem";
 import {
   primaryColor,
   backgroundColor1,
   backgroundColor2,
   darkerGrey,
-  darkGrey,
+  darkGrey
 } from "../themes/colors";
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-import test from "../assets/test.svg";
-import spacegbg from "../assets/spacebackground.jpg";
+import mainlogo from "../assets/mainlogo.svg";
 
 function MainLogo() {
   let size: number = 50;
-  return <Image src={test} width={size} height={size} />;
+  return <Image src={mainlogo} width={size} height={size} />;
 }
 
 function Home() {
@@ -31,7 +30,7 @@ function Home() {
         backgroundColor: darkerGrey,
       }}
     >
-      <Row style={{ backgroundImage: `url(${spacegbg})` }}>
+      <Row style={{backgroundImage: `linear-gradient(to bottom, ${backgroundColor1} 0%, ${backgroundColor2} 100%)`}}>
         <Col>
           <Jumbotron fluid style={{ backgroundColor: "transparent" }}>
             <MainLogo />
@@ -92,12 +91,12 @@ function Home() {
             <br />
             <DropDownItem title="Skills">
               <h3>Proficient</h3>
-              <p>React JS</p>
+              <p>React JS <strong>(Javascript / Typescript Framework)</strong></p>
               <p>React Native</p>
               <p>Typescript</p>
               <p>Javascript</p>
               <p>Python 3</p>
-              <p>Django</p>
+              <p>Django <strong>(Python3 Web Framework)</strong></p>
               <p>Git</p>
               <p>HTML</p>
               <p>CSS</p>

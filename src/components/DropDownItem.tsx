@@ -35,17 +35,17 @@ function DropDownContent({ children }: DropDownContentProps) {
   );
 }
 
-function DropDownItem(props: DropDownItemProps) {
+function DropDownItem({title, children}: DropDownItemProps) {
   let [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
     setIsClicked(!isClicked);
   };
   return (
     <div className="text-light">
-      <StyledButton onClick={handleClick}>{props.title}</StyledButton>
+      <StyledButton onClick={handleClick}>{title}</StyledButton>
       <br />
       <br />
-      {isClicked ? <DropDownContent children={props.children} /> : null}
+      {isClicked ? <DropDownContent children={children} /> : null}
     </div>
   );
 }
