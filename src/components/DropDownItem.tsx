@@ -35,7 +35,7 @@ function DropDownContent({ children }: DropDownContentProps) {
   );
 }
 
-function DropDownItem({title, children}: DropDownItemProps) {
+function DropDownItem({ title, children }: DropDownItemProps) {
   let [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
     setIsClicked(!isClicked);
