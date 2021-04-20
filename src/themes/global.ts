@@ -11,13 +11,8 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeInterface }>`
 	}
 
 	body {
-		align-items: center;
 		background: ${({ theme }) => theme.body};
 		color: ${({ theme }) => theme.text};
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		font-family: Roboto, Helvetica, Arial, sans-sarif;
 		transition: all linear;
 	}
 
@@ -27,5 +22,48 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeInterface }>`
 
 	.navbar {
 		background-color: ${({ theme }) => theme.navBody}
+	}
+
+	img {
+		width: 100%;
+	}
+
+	.navbar {
+		height: 70px;
+	}
+
+	.container {
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+
+	.navbar .container {
+		overflow: auto;
+		padding: 0 40px;
+	}
+
+	.navbar .flex {
+		justify-content: space-between;
+	}
+
+	.navbar ul {
+		display: flex;
+	}
+	
+	.navbar a {
+		color: ${(props) => props.theme.text};
+		padding: 10px;
+		margin: 0 5px;
+	}
+
+	.navbar a:hover {
+		border-bottom: 2px ${({ theme }) => theme.text} solid;
+	}
+
+	.flex {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
 	}
 `

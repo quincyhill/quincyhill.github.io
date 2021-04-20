@@ -1,3 +1,4 @@
+// Original Colors, needs some refactoring to fit theme
 export const primaryColor: string = '#FFA500'
 export const backgroundColor1: string = '#502FA3'
 export const backgroundColor2: string = '#019CAD'

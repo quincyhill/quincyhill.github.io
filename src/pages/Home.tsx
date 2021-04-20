@@ -1,169 +1,42 @@
 import React from 'react'
-import { default as DropDownItem } from '../components/dropdown/Item'
-import {
-	primaryColor,
-	backgroundColor1,
-	backgroundColor2,
-	footerBackgroundColor,
-	darkGrey,
-} from '../themes/colors'
-
-import Container from 'react-bootstrap/Container'
-import Jumbotron from 'react-bootstrap/Jumbotron'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import mainlogo from '../assets/mainlogo.svg'
-import { useDarkMode } from '../customHooks/useDarkMode'
-
-import styled from 'styled-components'
-
-// Css for this page
-
-function MainLogo() {
-	let size: number = 50
-	return <img src={mainlogo} width={size} height={size} />
-}
+import Navbar from '../components/navigation/Navbar'
+import Button from "../components/dropdown/Button"
+import Card from "../components/dropdown/Card"
+import {useDarkMode} from "../customHooks/useDarkMode"
+import {lightTheme, darkTheme} from "../themes/theme"
+import ToggleButton from "../components/general/ToggleButton"
+import DropDownItem from "../components/dropdown/Item"
 
 function Home() {
-	//	return (
-	//		<Container
-	//			fluid
-	//			className="p-0 text-center text-light"
-	//			style={{
-	//				overflowX: 'hidden',
-	//				minHeight: '100vh',
-	//				backgroundColor: footerBackgroundColor,
-	//			}}
-	//		>
-	//			<Row
-	//				style={{
-	//					backgroundImage: `linear-gradient(to bottom, ${backgroundColor1} 0%, ${backgroundColor2} 100%)`,
-	//				}}
-	//			>
-	//				<Col>
-	//					<Jumbotron fluid style={{ backgroundColor: 'transparent' }}>
-	//						<MainLogo />
-	//						<h1>Quincy Hill</h1>
-	//						<br />
-	//						<h4>Engineer | Developer</h4>
-	//						<br />
-	//						<p>therealquincyhill@gmail.com</p>
-	//						<p>224-256-0892</p>
-	//						<p>
-	//							<a
-	//								style={{ color: primaryColor }}
-	//								href="https://github.com/quincyhill"
-	//							>
-	//								Github
-	//							</a>
-	//						</p>
-	//						<p>
-	//							<a
-	//								style={{ color: primaryColor }}
-	//								href="https://www.linkedin.com/in/quincy-hill-4bb550176"
-	//							>
-	//								Linked In
-	//							</a>
-	//						</p>
-	//					</Jumbotron>
-	//				</Col>
-	//			</Row>
-	//			<Row style={{ backgroundColor: darkGrey }}>
-	//				<Col>
-	//					<Container>
-	//						<br />
-	//						<DropDownItem title="Goals">
-	//							<p>
-	//								Develop and Design the<strong> next generation </strong> of
-	//								technical solutions with an emphasis on
-	//								<strong> data driven </strong>research and insight
-	//							</p>
-	//						</DropDownItem>
-	//						<br />
-	//						<DropDownItem title="Education">
-	//							<p>
-	//								<span>Associates in Engineering Sciences</span> College of Lake
-	//								County
-	//							</p>
-	//							<p>Engineering Transfer Undergraduate, College of Lake County</p>
-	//						</DropDownItem>
-	//						<br />
-	//						<DropDownItem title="Projects | Experience">
-	//							<h3>Personal Projects: </h3>
-	//							<a
-	//								style={{ color: primaryColor }}
-	//								href="https://github.com/quincyhill/django_practice"
-	//							>
-	//								Backend Work
-	//							</a>
-	//						</DropDownItem>
-	//						<br />
-	//						<DropDownItem title="Skills">
-	//							<h3>Proficient</h3>
-	//							<p>
-	//								React JS <strong>(Javascript / Typescript Framework)</strong>
-	//							</p>
-	//							<p>React Native</p>
-	//							<p>Typescript</p>
-	//							<p>Javascript</p>
-	//							<p>Python 3</p>
-	//							<p>
-	//								Django <strong>(Python3 Web Framework)</strong>
-	//							</p>
-	//							<p>Git</p>
-	//							<p>HTML</p>
-	//							<p>CSS</p>
-	//							<p>Linux</p>
-	//							<h3>Understands</h3>
-	//							<p>Java</p>
-	//							<p>C#</p>
-	//							<p>Lua</p>
-	//						</DropDownItem>
-	//					</Container>
-	//					<br />
-	//				</Col>
-	//			</Row>
-	//			<Row>
-	//				<Col>
-	//					<br />
-	//					<p>Quincy Hill 2021</p>
-	//				</Col>
-	//			</Row>
-	//		</Container>
-	//	)
-	//
+	// Figure out hooks and other global stuff
+	const [theme, toggleTheme] = useDarkMode()
+
+	const themeMode = theme === 'light' ? lightTheme : darkTheme
+
 	return (
-		<div className="home-container">
-			<header
-				style={{
-					backgroundImage: `linear-gradient(to bottom, ${backgroundColor1} 0%, ${backgroundColor2} 100%)`,
-				}}
-			>
-				<MainLogo />
-				<h1>Quincy Hill</h1>
-				<br />
-				<h4>Engineer | Developer</h4>
-				<br />
-				<p>therealquincyhill@gmail.com</p>
-				<p>224-256-0892</p>
-				<p>
-					<a
-						style={{ color: primaryColor }}
-						href="https://github.com/quincyhill"
-					>
-						Github
-					</a>
-				</p>
-				<p>
-					<a
-						style={{ color: primaryColor }}
-						href="https://www.linkedin.com/in/quincy-hill-4bb550176"
-					>
-						Linked In
-					</a>
-				</p>
-			</header>
-			<br />
+		<React.Fragment>
+			<div className="main-navbar">
+				<Navbar />
+					<ToggleButton theme={theme} toggleTheme={toggleTheme} />
+			</div>
+			<section className="showcase">
+				<div className="container grid">
+					<div className="showcase-text">
+						<h1> Easier Deployment</h1>
+						<p>
+							fdjkalsf fdsjklf fjdkslfjsd jklds
+							jfklds sj fldk fjdkls fj jklfdsjfelkw 
+							fjslkjefklsjfkl fjeklws jfkles jfkle jsf
+							jsfklej fesfl
+						</p>
+						<Button>Read More</Button>
+						<button>Read less</button>
+					</div>
+					<Card>
+						<h2>Requet a demo</h2>
+					</Card>
+				</div>
+
 			<DropDownItem title="Goals">
 				<p>
 					Develop and Design the<strong> next generation </strong> of technical
@@ -182,7 +55,6 @@ function Home() {
 			<DropDownItem title="Projects | Experience">
 				<h3>Personal Projects: </h3>
 				<a
-					style={{ color: primaryColor }}
 					href="https://github.com/quincyhill/django_practice"
 				>
 					Backend Work
@@ -210,7 +82,8 @@ function Home() {
 				<p>C#</p>
 				<p>Lua</p>
 			</DropDownItem>
-		</div>
+			</section>
+		</React.Fragment>
 	)
 }
 

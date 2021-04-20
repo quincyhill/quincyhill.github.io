@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Home from './pages/Home2'
+import Home from './pages/Home'
 
 function BaseRouter() {
 	return (

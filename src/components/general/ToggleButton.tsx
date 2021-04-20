@@ -4,8 +4,8 @@ import { ReactComponent as MoonIcon } from '../../assets/moon.svg'
 import { ReactComponent as SunIcon } from '../../assets/sun.svg'
 
 interface ToggleButtonProps {
-	theme: string | (() => void)
-	toggleTheme: string | (() => void)
+	theme: string
+	toggleTheme: () => void
 }
 
 const ToggleContainer = styled.button`
@@ -21,22 +21,20 @@ const ToggleContainer = styled.button`
 	overflow: hidden;
 	padding: 0.5rem;
 	position: relative;
-	width: 6rem;
+	width: 5rem;
 	height: 4rem;
+	justify-content: center;
 
 	svg {
-		height: 1.5rem;
-		width: 1.5rem;
+		height: 2.5rem;
+		width: 2.5rem;
 	}
 `
 
 function ToggleButton({ theme, toggleTheme }: ToggleButtonProps) {
 	const isLight: boolean = theme === 'light'
-
-	// cast toggleTheme to only a function that returns void;
-	const myToggleTheme = toggleTheme as () => void
 	return (
-		<ToggleContainer onClick={myToggleTheme}>
+		<ToggleContainer onClick={toggleTheme}>
 			{isLight && <SunIcon />}
 			{!isLight && <MoonIcon />}
 		</ToggleContainer>

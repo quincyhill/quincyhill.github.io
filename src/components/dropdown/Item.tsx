@@ -1,26 +1,26 @@
 import React, { useState, ReactNode } from 'react'
-import { darkGrey, primaryColor, footerBackgroundColor } from '../../themes/colors'
+import {
+	darkGrey,
+	primaryColor,
+	footerBackgroundColor,
+} from '../../themes/colors'
 import styled from 'styled-components'
-import Button from "./Button"
-import Card from "./Card"
+import Button from './Button'
+import Card from './Card'
 
 interface ItemProps {
 	title: string
 	children: ReactNode
 }
-interface ContentsProps {
-	children: ReactNode
-}
 
-
-// updated to use styled components instead of react bootstrap
-function Content({children}: ContentsProps){
-	return (
-		<Card>
-			{children}
-		</Card>
-	)
-}
+const DropDownContainer = styled.div`
+	display: grid;
+	justify-items: center;
+	padding: 0 40px;
+	.test-btn {
+		font-size: 20px;
+	}
+`
 
 function Item({ title, children }: ItemProps) {
 	let [isClicked, setIsClicked] = useState<boolean>(false)
@@ -30,17 +30,11 @@ function Item({ title, children }: ItemProps) {
 	}
 
 	return (
-		<div className="text-light">
-			<Button
-				color={isClicked ? primaryColor : darkGrey}
-				onClick={handleClick}
-			>
-				{title}
-			</Button>
+		<DropDownContainer>
+			<Button className="test-btn" onClick={handleClick}>{title}</Button>
 			<br />
-			<br />
-			{isClicked ? <Content children={children} /> : null}
-		</div>
+			{isClicked ? <Card>{children}</Card>: null}
+		</DropDownContainer>
 	)
 }
 

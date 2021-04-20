@@ -6,7 +6,6 @@ import { useDarkMode } from './customHooks/useDarkMode'
 import { lightTheme, darkTheme } from './themes/theme'
 import { GlobalStyles } from './themes/global'
 import ToggleButton from './components/general/ToggleButton'
-// import 'bootstrap/dist/css/bootstrap.min.css'
 
 // These are the default router functions
 // <BrowserRouter>
@@ -25,16 +24,14 @@ function App() {
 	return (
 		<ThemeProvider theme={themeMode}>
 			<React.Fragment>
-				<GlobalStyles />
-				<div className="main-container">
-					<div className="toggle-button">
-						<ToggleButton theme={theme} toggleTheme={toggleTheme} />
-					</div>
-					<div className="main-router">
-						<BrowserRouter>
-							<BaseRouter />
-						</BrowserRouter>
-					</div>
+				<GlobalStyles /> 
+				<div className="toggle-button">
+					<ToggleButton theme={theme} toggleTheme={toggleTheme} />
+				</div>
+				<div className="main-router">
+					<BrowserRouter>
+						<BaseRouter />
+					</BrowserRouter>
 				</div>
 			</React.Fragment>
 		</ThemeProvider>
