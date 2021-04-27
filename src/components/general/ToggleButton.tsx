@@ -12,22 +12,15 @@ const ToggleContainer = styled.button`
 	background: ${({ theme }) => theme.gradient};
 	border: 2px solid ${({ theme }) => theme.toggleBorder};
 	color: ${({ theme }) => theme.text};
-	border-radius: 30px;
+	border-radius: 20px;
 	cursor: pointer;
-	display: flex;
-	font-size: 0.5rem;
-	justify-content: space-between;
 	margin: 0 auto;
-	overflow: hidden;
-	padding: 0.5rem;
-	position: relative;
-	width: 5rem;
-	height: 4rem;
-	justify-content: center;
+	width: 4rem;
+	height: 3rem;
 
 	svg {
-		height: 2.5rem;
-		width: 2.5rem;
+		height: 1.5rem;
+		width: 1.5rem;
 	}
 `
 

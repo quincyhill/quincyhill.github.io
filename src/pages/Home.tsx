@@ -1,11 +1,12 @@
 import React from 'react'
 import Navbar from '../components/navigation/Navbar'
-import Button from "../components/dropdown/Button"
-import Card from "../components/dropdown/Card"
-import {useDarkMode} from "../customHooks/useDarkMode"
-import {lightTheme, darkTheme} from "../themes/theme"
-import ToggleButton from "../components/general/ToggleButton"
-import DropDownItem from "../components/dropdown/Item"
+import Footer from '../components/footer/Footer'
+import Button from '../components/dropdown/Button'
+import Card from '../components/dropdown/Card'
+import { useDarkMode } from '../customHooks/useDarkMode'
+import { lightTheme, darkTheme } from '../themes/theme'
+import ToggleButton from '../components/general/ToggleButton'
+import DropDownItem from '../components/dropdown/Item'
 
 function Home() {
 	// Figure out hooks and other global stuff
@@ -15,74 +16,54 @@ function Home() {
 
 	return (
 		<React.Fragment>
-			<div className="main-navbar">
-				<Navbar />
-					<ToggleButton theme={theme} toggleTheme={toggleTheme} />
-			</div>
-			<section className="showcase">
-				<div className="container grid">
-					<div className="showcase-text">
-						<h1> Easier Deployment</h1>
-						<p>
-							fdjkalsf fdsjklf fjdkslfjsd jklds
-							jfklds sj fldk fjdkls fj jklfdsjfelkw 
-							fjslkjefklsjfkl fjeklws jfkles jfkle jsf
-							jsfklej fesfl
-						</p>
-						<Button>Read More</Button>
-						<button>Read less</button>
-					</div>
-					<Card>
-						<h2>Requet a demo</h2>
-					</Card>
-				</div>
-
-			<DropDownItem title="Goals">
-				<p>
-					Develop and Design the<strong> next generation </strong> of technical
-					solutions with an emphasis on
-					<strong> data driven </strong>research and insight
-				</p>
-			</DropDownItem>
-			<br />
-			<DropDownItem title="Education">
-				<p>
-					<span>Associates in Engineering Sciences</span> College of Lake County
-				</p>
-				<p>Engineering Transfer Undergraduate, College of Lake County</p>
-			</DropDownItem>
-			<br />
-			<DropDownItem title="Projects | Experience">
-				<h3>Personal Projects: </h3>
-				<a
-					href="https://github.com/quincyhill/django_practice"
-				>
-					Backend Work
-				</a>
-			</DropDownItem>
-			<br />
-			<DropDownItem title="Skills">
-				<strong>Proficient</strong>
-				<p>
-					React JS <strong>(Javascript / Typescript Framework)</strong>
-				</p>
-				<p>React Native</p>
-				<p>Typescript</p>
-				<p>Javascript</p>
-				<p>Python 3</p>
-				<p>
-					Django <strong>(Python3 Web Framework)</strong>
-				</p>
-				<p>Git</p>
-				<p>HTML</p>
-				<p>CSS</p>
-				<p>Linux</p>
-				<strong>Understands</strong>
-				<p>Java</p>
-				<p>C#</p>
-				<p>Lua</p>
-			</DropDownItem>
+			<Navbar />
+			<section className="container showcase">
+				<DropDownItem title="Goals">
+					<p>
+						Develop and Design the<strong> next generation </strong> of
+						technical solutions with an emphasis on
+						<strong> data driven </strong>research and insight
+					</p>
+				</DropDownItem>
+				<br />
+				<DropDownItem title="Education">
+					<p>
+						<span>Associates in Engineering Sciences</span> College of Lake
+						County
+					</p>
+					<p>Engineering Transfer Undergraduate, College of Lake County</p>
+				</DropDownItem>
+				<br />
+				<DropDownItem title="Projects | Experience">
+					<h3>Personal Projects: </h3>
+					<a href="https://github.com/quincyhill/django_practice">
+						Backend Work
+					</a>
+				</DropDownItem>
+				<br />
+				<DropDownItem title="Skills">
+					<strong>Proficient</strong>
+					<p>
+						React JS <strong>(Javascript / Typescript Framework)</strong>
+					</p>
+					<p>React Native</p>
+					<p>Typescript</p>
+					<p>Javascript</p>
+					<p>Python 3</p>
+					<p>
+						Django <strong>(Python3 Web Framework)</strong>
+					</p>
+					<p>Git</p>
+					<p>HTML</p>
+					<p>CSS</p>
+					<p>Linux</p>
+					<strong>Understands</strong>
+					<p>Java</p>
+					<p>C#</p>
+					<p>Lua</p>
+				</DropDownItem>
 			</section>
+			<Footer />
 		</React.Fragment>
 	)
 }

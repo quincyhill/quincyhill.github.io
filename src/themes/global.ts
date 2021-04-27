@@ -2,68 +2,49 @@ import { createGlobalStyle } from 'styled-components'
 import { ThemeInterface } from './theme'
 
 export const GlobalStyles = createGlobalStyle<{ theme: ThemeInterface }>`
-	*,
-	*::after,
-	*::before{
-		box-sizing: border-box;
+	* {
 		padding: 0;
 		margin: 0;
+		font-size: 1.25rem;
 	}
 
 	body {
 		background: ${({ theme }) => theme.body};
 		color: ${({ theme }) => theme.text};
-		transition: all linear;
 	}
 
 	a {
 		color: ${({ theme }) => theme.text};
 	}
 
-	.navbar {
+	.toggle-div {
+		padding: 1rem 0;
+		display: grid;
+		background-color: ${({ theme }) => theme.navBody};
+	}
+
+	nav {
+		height: 12rem;
+		text-align: center;
+		text-decoration: none;
 		background-color: ${({ theme }) => theme.navBody}
 	}
 
-	img {
-		width: 100%;
-	}
-
-	.navbar {
-		height: 70px;
+	footer {
+		padding-top: 4rem;
+		text-align: center;
+		min-height: 5rem;
 	}
 
 	.container {
-		max-width: 1100px;
+		display: grid;
+		max-width: 1000px;
 		margin: 0 auto;
 	}
 
-	.navbar .container {
-		overflow: auto;
-		padding: 0 40px;
-	}
-
-	.navbar .flex {
-		justify-content: space-between;
-	}
-
-	.navbar ul {
-		display: flex;
+	.showcase {
+		padding: 2rem 0px;
 	}
 	
-	.navbar a {
-		color: ${(props) => props.theme.text};
-		padding: 10px;
-		margin: 0 5px;
-	}
 
-	.navbar a:hover {
-		border-bottom: 2px ${({ theme }) => theme.text} solid;
-	}
-
-	.flex {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-	}
 `
