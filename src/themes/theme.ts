@@ -1,36 +1,36 @@
 import {
 	lightBody,
 	lightText,
-	lightToggleBorder,
 	lightGradient,
 	darkBody,
 	darkText,
-	darkToggleBorder,
 	darkGradient,
-	backgroundColor1,
-	backgroundColor2,
+	headerLightBackgrondColor,
+	headerDarkBackgroundColor,
+	moonBackgroundColor,
+	sunBackgroundColor,
 } from './colors'
 
 export interface ThemeInterface {
 	body: string
 	navBody: string
 	text: string
-	toggleBorder: string
 	gradient: string
+	toggleColor: string
 }
 
 export const lightTheme: ThemeInterface = {
 	body: lightBody,
-	navBody: backgroundColor2,
+	navBody: headerLightBackgrondColor,
 	text: lightText,
-	toggleBorder: lightToggleBorder,
 	gradient: lightGradient,
+	toggleColor: sunBackgroundColor,
 }
 
 export const darkTheme = {
 	body: darkBody,
-	navBody: backgroundColor1,
+	navBody: headerDarkBackgroundColor,
 	text: darkText,
-	toggleBorder: darkToggleBorder,
 	gradient: darkGradient,
+	toggleColor: moonBackgroundColor,
 }

@@ -9,8 +9,9 @@ interface ToggleButtonProps {
 }
 
 const ToggleContainer = styled.button`
-	background: ${({ theme }) => theme.gradient};
-	border: 2px solid ${({ theme }) => theme.toggleBorder};
+	background: ${({ theme }) => theme.toggleColor};
+	border: 2px solid ${({ theme }) => theme.toggleColor};
+	box-shadow: 0 0 5px ${({theme}) => theme.toggleColor}, 0 0px 10px rgba(0, 0, 0, 0.4);
 	color: ${({ theme }) => theme.text};
 	border-radius: 20px;
 	cursor: pointer;

@@ -1,9 +1,4 @@
 import React, { useState, ReactNode } from 'react'
-import {
-	darkGrey,
-	primaryColor,
-	footerBackgroundColor,
-} from '../../themes/colors'
 import styled from 'styled-components'
 import Button from './Button'
 import Card from './Card'
@@ -16,6 +11,7 @@ interface ItemProps {
 const DropDownContainer = styled.div`
 	display: grid;
 	justify-items: center;
+	text-align: center;
 	padding: 0 40px;
 	.test-btn {
 		font-size: 20px;

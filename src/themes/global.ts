@@ -27,7 +27,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeInterface }>`
 		height: 12rem;
 		text-align: center;
 		text-decoration: none;
-		background-color: ${({ theme }) => theme.navBody}
+		background-image: ${({ theme }) => theme.gradient}
 	}
 
 	footer {
