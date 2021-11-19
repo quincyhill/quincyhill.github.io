@@ -28,6 +28,7 @@
 	--standard-spacing: 10px;
 	--short-delay: 0.25s;
 	--long-delay: 0.5s;
+	--mobile-header-height: 14rem;
 }
 
 html {
@@ -45,12 +46,15 @@ html {
 }
 
 header {
-	display: inline-flex;
+	display: flex;
 	flex-wrap: wrap;
+	position: fixed;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
 	width: 100vw;
+	height: 6rem;
+	z-index: 1;
 }
 
 #theme-switcher {
@@ -62,31 +66,34 @@ header {
 	background-color: var(--sun-color);
 }
 
-#theme-switcher img {
-	width: 2rem;
-	height: 2rem;
-}
-
 .light-theme #theme-switcher {
-	box-shadow: 0 0 5px var(--sun-color), 0 0px 10px rgba(0, 0, 0, 0.4);
 	background-color: var(--sun-color);
-	transition: background-color var(--long-delay) ease, box-shadow var(--short-delay) ease;
+	box-shadow: 0 0 5px var(--sun-color), 0 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 .light-theme #theme-switcher:hover {
+	transition: background-color var(--long-delay) ease, box-shadow var(--short-delay) ease;
 	background-color: var(--sun-color);
 	box-shadow: 0 0 10px var(--sun-color), 0 0px 20px rgba(0, 0, 0, 0.4);
 }
 
 .dark-theme #theme-switcher {
-	box-shadow: 0 0 5px var(--moon-color), 0 0px 10px rgba(0, 0, 0, 0.4);
 	background-color: var(--moon-color);
-	transition: background-color var(--long-delay) ease, box-shadow var(--short-delay) ease;
+	box-shadow: 0 0 5px var(--moon-color), 0 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 .dark-theme #theme-switcher:hover {
+	transition: background-color var(--long-delay) ease, box-shadow var(--short-delay) ease;
 	background-color: var(--moon-color);
 	box-shadow: 0 0 10px var(--moon-color), 0 0px 20px rgba(0, 0, 0, 0.4);
+}
+
+#sun-svg {
+	color: var(--light-text);
+}
+
+#moon-svg {
+	color: var(--dark-text);
 }
 
 header nav {
@@ -95,59 +102,41 @@ header nav {
 	padding: var(--standard-spacing);
 }
 
+.light-theme header nav a svg {
+	color: var(--light-text);
+}
+
+.dark-theme header nav a svg {
+	color: var(--dark-text);
+}
+
 #github-link {
 	margin-left: var(--standard-spacing);
 	margin-right: var(--standard-spacing);
 }
 
-#github-link div {
-	display: flex;
-	justify-content: center;
-	border-radius: 1.25rem;
+.light-theme #github-svg:hover {
+	transition: color var(--short-delay) ease;
+	color: var(--sun-color);
 }
 
-.light-theme #github-link div {
-	transition: background-color var(--short-delay) ease;
-}
-
-.light-theme #github-link div:hover {
-	background-color: var(--sun-color);
-}
-
-.dark-theme #github-link div {
-	transition: background-color var(--long-delay) ease;
-	background-color:var(--light-body);
-}
-
-.dark-theme #github-link div:hover {
-	background-color: var(--moon-color);
+.dark-theme #github-svg:hover {
+	transition: color var(--long-delay) ease;
+	color: var(--moon-color);
 }
 
 #linkedin-link {
 	margin-left: var(--standard-spacing);
 }
 
-#linkedin-link div {
-	display: flex;
-	justify-content: center;
-	border-radius: 0.5rem;
+.light-theme #linkedin-svg:hover {
+	transition: color var(--short-delay) ease;
+	color: var(--sun-color);
 }
 
-.light-theme #linkedin-link div {
-	transition: background-color var(--short-delay) ease;
-}
-
-.light-theme #linkedin-link div:hover {
-	background-color: var(--sun-color);
-}
-
-.dark-theme #linkedin-link div {
-	transition: background-color var(--short-delay) ease;
-	background-color:var(--light-body);
-}
-
-.dark-theme #linkedin-link div:hover {
-	background-color: var(--moon-color);
+.dark-theme #linkedin-svg:hover {
+	transition: color var(--short-delay) ease;
+	color: var(--moon-color);
 }
 
 header img {
@@ -172,6 +161,7 @@ header button {
 }
 
 main {
+	padding-top: 6rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -221,21 +211,23 @@ main {
 .light-theme .drop-down-btn {
 	color: var(--light-text);
 	background-image: var(--light-gradient);
-	transition: color var(--short-delay) ease;
 }
 
 .light-theme .drop-down-btn:hover {
+	transition: color var(--short-delay) ease, transform var(--short-delay) ease;
 	color: var(--sun-color);
+  transform: scale(1.05);
 }
 
 .dark-theme .drop-down-btn {
 	color: var(--dark-text);
 	background-image: var(--dark-gradient);
-	transition: color var(--short-delay) ease;
 }
 
 .dark-theme .drop-down-btn:hover {
+	transition: color var(--short-delay) ease, transform var(--short-delay) ease;
 	color: var(--moon-color);
+  transform: scale(1.05);
 }
 
 footer {
@@ -248,61 +240,25 @@ footer {
 	header {
 		display: flex;
 		flex-direction: column; 
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		width: 100vw;
+		height: var(--mobile-header-height);
 	}
 
 	header h1 {
 		margin: 0px 0px 1rem 0px;
 	}
 
+	main {
+		padding-top: var(--mobile-header-height);
+	}
 
-	.light-theme #theme-switcher {
-		box-shadow: 0 0 5px var(--sun-color), 0 0px 10px rgba(0, 0, 0, 0.4);
-		background-color: var(--sun-color);
-		transition: background-color var(--long-delay) ease;
-	}
-	
 	.light-theme #theme-switcher:hover {
-		background-color: var(--sun-color);
 		box-shadow: 0 0 5px var(--sun-color), 0 0px 10px rgba(0, 0, 0, 0.4);
-	}
-	
-	.dark-theme #theme-switcher {
-		box-shadow: 0 0 5px var(--moon-color), 0 0px 10px rgba(0, 0, 0, 0.4);
-		background-color: var(--moon-color);
 		transition: background-color var(--long-delay) ease;
 	}
 	
 	.dark-theme #theme-switcher:hover {
-		background-color: var(--moon-color);
 		box-shadow: 0 0 5px var(--moon-color), 0 0px 10px rgba(0, 0, 0, 0.4);
-	}
-
-	#github-link div {
-		transition: none;
-	}
-
-	.light-theme #github-link div:hover {
-		background-color: transparent;
-	}
-
-	.dark-theme #github-link div:hover {
-		background-color: var(--light-body);
-	}
-
-	#linkedin-link div {
-		transition: none;
-	}
-
-	.light-theme #linkedin-link div:hover {
-		background-color: transparent;
-	}
-
-	.dark-theme #linkedin-link div:hover {
-		background-color: var(--light-body);
+		transition: background-color var(--long-delay) ease;
 	}
 
 	.drop-down-btn {
@@ -310,8 +266,6 @@ footer {
 	}
 
 	.light-theme .drop-down-btn {
-		color: var(--light-text);
-		background-image: var(--light-gradient);
 		transition: none;
 	}
 	
@@ -320,8 +274,6 @@ footer {
 	}
 	
 	.dark-theme .drop-down-btn {
-		color: var(--dark-text);
-		background-image: var(--dark-gradient);
 		transition: none;
 	}
 	
